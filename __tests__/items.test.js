@@ -45,6 +45,7 @@ describe('items', () => {
     const [agent, user] = await registerAndLogin();
     const newItem = { description: 'eggs', qty: 12 };
     const resp = await agent.post('/api/v1/items').send(newItem);
+
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual({
       id: expect.any(String),
@@ -111,7 +112,7 @@ describe('items', () => {
     expect(resp.status).toBe(403);
   });
 
-  it('DELETE /api/v1/items/:id should delete items for valid user', async () => {
+  it('DELETE /api/v1/items/:id should delete items for valid authd user', async () => {
     const [agent, user] = await registerAndLogin();
     const item = await Item.insert({
       description: 'apples',
