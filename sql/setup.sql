@@ -1,5 +1,5 @@
 -- Use this file to define your SQL tables
--- The SQL in this file will be executed when you run `npm run setup-db`
+-- The SQL in this file will be executed when you run `npm run setup-dba`
 DROP TABLE IF EXISTS items CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 
